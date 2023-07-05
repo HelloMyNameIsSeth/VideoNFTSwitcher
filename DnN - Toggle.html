@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="container">
+        
+        <video id="myVideo" controls autoplay loop class="myvideo">
+            <source src="https://longlost-video-bucket.s3.ap-southeast-2.amazonaws.com/The+Homies+-+Get+Lost.mp4" type="video/mp4">
+        </video>
+        <button onclick="myFunction()" type="button">Toggle Video</button>
+    </div>
+
+    <style type="text/css">
+        
+        #container {
+            position: relative;
+        }
+
+        .myvideo {
+            object-fit: fill;
+        }
+
+        #container button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        
+    </style>
+    <script type="text/javascript">
+
+        var vid = document.getElementById("myVideo");
+        var statusElement = document.getElementById("status");
+        var currentlyPlaying = 1;
+        var currentlPlayingTime;
+
+        var src1 = "https://longlost-video-bucket.s3.ap-southeast-2.amazonaws.com/The+Homies+-+Get+Lost.mp4"
+
+        var src2 = "https://longlost-video-bucket.s3.ap-southeast-2.amazonaws.com/The+Homies+-+Get+Lost.mp4"
+
+        function myFunction() {
+            currentlPlayingTime = vid.currentTime;
+            if (currentlyPlaying === 1) {
+                vid.src = src2;
+                currentlyPlaying = 2;
+            } else {
+                vid.src = src1;
+                currentlyPlaying = 1;
+            }
+            vid.load();
+            vid.addEventListener('loadedmetadata', function () {
+                vid.currentTime = 0;
+            }, false);
+        }
+
+    </script>
+
+    <script>
+        var myVideo = document.getElementById("video1");
+
+    </script>
+
+</body>
+
+</html>
